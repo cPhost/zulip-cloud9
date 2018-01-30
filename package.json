@@ -1,0 +1,37 @@
+{
+  "name": "zulip-cloud9",
+  "version": "1.0.0",
+  "description": "This npm package helps run zulip dev enviorment on cloud9 as easily as possible.",
+  "main": "index.js",
+  "bin": {
+    "zulip-dev": "./bin/zulip-dev"
+  },
+  "scripts": {
+    "lint": "eslint . --cache",
+    "lint-fix": "eslint . --cache --fix",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cPhost/zulip-cloud9.git"
+  },
+  "keywords": [
+    "zulip-dev",
+    "zulip",
+    "zulip devlopment"
+  ],
+  "author": "cPhost",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/cPhost/zulip-cloud9/issues"
+  },
+  "homepage": "https://github.com/cPhost/zulip-cloud9#readme",
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
