@@ -1,6 +1,6 @@
 {
   "name": "zulip-cloud9",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This npm package helps run zulip dev enviorment on cloud9 as easily as possible.",
   "main": "index.js",
   "bin": {
