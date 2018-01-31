@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
 const argv = require('../lib/args')();
-const utils = require('../lib/utils');
-const provison = require('../lib/provision');
 const startDevServer = require('../lib/dev-server');
 const startServices = require('../lib/start-services');
 
@@ -14,7 +12,6 @@ if (argv.help) {
   commands
   ------------------------
   -h, --help, help         Display help (this message)
-  provision                Runs zulip's provison
   start                    Starts the dev enviorment for cloud9
   start-services           Starts all the service's required for zulip dev enviorment
 
@@ -26,10 +23,6 @@ if (argv.help) {
   `;
   console.log(msg);
   process.exit(1);
-}
-
-if (argv.provision) {
-  provison(argv.provision);
 }
 
 if (argv.startServices) {

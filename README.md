@@ -2,6 +2,11 @@
 zulip-cloud9 provides a wrapper for running zulip dev environment on cloud9.
 
 ## Usage
+
+### Install
+Finish updating
+
+
 ```
   zulip-dev <commands> [flags]
   This script is for use in a cloud9 workspace
@@ -22,7 +27,13 @@ zulip-cloud9 provides a wrapper for running zulip dev environment on cloud9.
 Then default zulip path is `/home/ubunutu/workspace/zulip` top level zulip folder in c9 workspace.
 
 ### `zulip-dev provision`
-This runs the provision script and handles any error is ocurrs. This is recommended if you run it the first time you are provision. If you already ran `zulip-dev start-services` you can just run `./tools/provision`.
+This runs the provision script and handles any error if it ocurrs. If you already ran `zulip-dev start-services` you can just run `./tools/provision`.
+
+Note: If this the first time running provison don't use this script instead you should restart rabbitmq service and provision
+```
+sudo service rabbitmq-server restart
+./tools/provision
+```
 
 ### `zulip-dev start`
 This starts the dev enviorment. This command exports `EXTERNAL_HOST` and handles if starts the services beforehand if needed to. This by default binds the host to `0.0.0.0` rather than `127.0.0.1` so it works on cloud9 and sets the port to `8080`.
