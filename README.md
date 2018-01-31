@@ -4,12 +4,7 @@ zulip-cloud9 provides a wrapper for running zulip dev environment on cloud9.
 ## Usage
 
 ### Install
-Make sure zulip's virtual enviorment is activated and you are in home directory.
-Then download and link package manually since `npm i -g zulip-cloud9` does not work in zulip's virtual enviorment.
-```bash
-npm i zulip-cloud9
-npm ls    # link the module to bin manually
-```
+Installing zulip-cloud9 package and zulip dev enviorment in a cloud9 workspace is documented in [wiki](../../wiki)
 
 ```
 zulip-dev <command>
@@ -30,3 +25,5 @@ This starts the dev enviorment. This command exports `EXTERNAL_HOST` and handles
 
 ### `zulip-dev start-services`
 This script starts all the services only if needed. You can run this script if you encounter an error's documented in [wiki](../../wiki/Errors)
+
+Errors you can encounter in cloud9 workspace while working with zulip dev enviorment are documented in [wiki](../../wiki/Errors)
