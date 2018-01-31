@@ -1,6 +1,6 @@
 {
   "name": "zulip-cloud9",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This npm package helps run zulip dev enviorment on cloud9 as easily as possible.",
   "main": "index.js",
   "bin": {
@@ -33,5 +33,8 @@
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1"
+  },
+  "dependencies": {
+    "yargs": "^11.0.0"
   }
 }
