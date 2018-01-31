@@ -29,4 +29,4 @@ Then default zulip path is `/home/ubunutu/workspace/zulip` top level zulip folde
 This starts the dev enviorment. This command exports `EXTERNAL_HOST` and handles if starts the services beforehand if needed to. This by default binds the host to `0.0.0.0` rather than `127.0.0.1` so it works on cloud9 and sets the port to `8080`.
 
 ### `zulip-dev start-services`
-This script starts all the services only if needed. You can run this script if you encounter an error's documented in [TOOD: Document errors]
+This script starts all the services only if needed. You can run this script if you encounter an error's documented in [wiki](../../wiki/Errors)
