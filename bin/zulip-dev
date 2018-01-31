@@ -1,34 +1,44 @@
 #!/usr/bin/env node
 
-const argv = require('../lib/args')();
-const startDevServer = require('../lib/dev-server');
-const startServices = require('../lib/start-services');
+const yargs = require('yargs');
 
-if (argv.help) {
-  const msg = `
-  zulip-dev <commands> [flags]
-  This script is for use in a cloud9 workspace
+const args = process.argv.splice(2);
+const passedArgs = args.join(' ').split('--')[1];
 
-  commands
-  ------------------------
-  -h, --help, help         Display help (this message)
-  start                    Starts the dev enviorment for cloud9
-  start-services           Starts all the service's required for zulip dev enviorment
+function startCommand(argv) {
+  const devServer = require('../lib/dev-server');
 
-  Optional Flags for provision, and start:
-  [-z] [--zulip-path]      Optional flag zulip path if not installed at
-                           ~/workspace/zulip
-  -- <flags>               Everything after -- will be passed to ./tools/run-dev or
-                           ./tools/provision script.
-  `;
-  console.log(msg);
-  process.exit(1);
+  argv.passedArgs = passedArgs;
+  devServer(argv);
 }
 
-if (argv.startServices) {
-  startServices(argv.startServices);
+function startServicesCommand() {
+  const startServices = require('../lib/start-services');
+  startServices();
 }
 
-if (argv.start) {
-  startDevServer(argv.start);
-}
+yargs(args)
+  .command({
+    command: 'start',
+    desc: 'Start zulip-dev server on http://0.0.0.0',
+    builder: (yargs) => {
+      yargs
+        .option('zulip-path', {
+          alias: 'z',
+          demandOption: false,
+          describe: 'Path to zulip server if not on top-level workspace folder',
+          type: 'string'
+        });
+    },
+    handler: startCommand
+  })
+  .command({
+    command: 'start-services',
+    desc: 'Start all the required services for zulip.',
+    handler: startServicesCommand
+  })
+  .detectLocale(false)
+  .demandCommand(1, 'You must specify start or start-services')
+  .help()
+  .alias('help', 'h')
+  .argv;
