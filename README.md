@@ -29,7 +29,7 @@ This script starts all the services only if needed. You can run this script if y
 
 Errors you can encounter in cloud9 workspace while working with zulip dev enviorment are documented in [wiki](../../wiki/Errors)
 
-# Weird webapp error
+## Weird webapp error
 If you get a error here are steps you should follow:
 * If you did not run `zulip-dev start` yet run `zulip-dev start-services`. 
 * Run provision `./tools/provision`.  
