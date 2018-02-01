@@ -3,7 +3,17 @@
 const yargs = require('yargs');
 
 const args = process.argv.splice(2);
-const passedArgs = args.join(' ').split('--')[1];
+let passedArgs = args.join(' ');
+passedArgs = passedArgs.split('--')[1];
+
+if (passedArgs) {
+  passedArgs = passedArgs.split(' ');
+  passedArgs.forEach((arg, i) => {
+    if (arg === '' || arg === undefined) {
+      passedArgs.splice(i, 1);
+    }
+  });
+}
 
 function startCommand(argv) {
   const devServer = require('../lib/dev-server');
@@ -14,7 +24,7 @@ function startCommand(argv) {
 
 function startServicesCommand() {
   const startServices = require('../lib/start-services');
-  startServices({});
+  startServices();
 }
 
 yargs(args)
