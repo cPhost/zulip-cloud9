@@ -72,6 +72,17 @@ FILE = path.abspath(ZULIP_DIR + '/tools/run-dev.py')
 TOOLS_DIR = path.dirname(FILE)
 sys.path.insert(0, os.path.dirname(TOOLS_DIR))
 
+from tools.lib.test_script import (
+    get_provisioning_status,
+)
+
+if not options.force:
+    ok, msg = get_provisioning_status()
+    if not ok:
+        print(msg)
+        print('If you really know what you are doing, use --force to run anyway.')
+        sys.exit(1)
+
 if options.interface is None:
     user_id = os.getuid()
     user_name = pwd.getpwuid(user_id).pw_name
