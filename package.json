@@ -1,6 +1,6 @@
 {
   "name": "zulip-cloud9",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This npm package helps run zulip dev enviorment on cloud9 as easily as possible.",
   "main": "./bin/zulip-dev",
   "bin": {
@@ -18,7 +18,9 @@
   "keywords": [
     "zulip-dev",
     "zulip",
-    "zulip devlopment"
+    "zulip devlopment",
+    "zulip cloud9",
+    "zulip dev enviorment"
   ],
   "author": "cPhost",
   "license": "Apache License 2.0",
