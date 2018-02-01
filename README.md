@@ -28,3 +28,11 @@ If you have not run `zulip-dev start` and you need to run provison use this comm
 This script starts all the services only if needed. You can run this script if you encounter an error's documented in [wiki](../../wiki/Errors)
 
 Errors you can encounter in cloud9 workspace while working with zulip dev enviorment are documented in [wiki](../../wiki/Errors)
+
+# Weird webapp error
+If you get a error here are steps you should follow:
+* If you did not run `zulip-dev start` yet run `zulip-dev start-services`. 
+* Run provision `./tools/provision`.  
+
+You need to run provision often because in these cases, since currently `zulip-dev start` does not check provision number. If the issue presist check the errors wiki and open an issue.
+
