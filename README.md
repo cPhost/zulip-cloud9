@@ -18,12 +18,13 @@ Options:
   --help, -h  Show help                                                [boolean]
 
 ```
-Then default zulip path is `/home/ubunutu/workspace/zulip` top level zulip folder in c9 workspace.
+If not `--zulip-path` is passed it checkes if the cwd is zulip then the default path `/home/ubuntu/workspace/zulip` this is the top level folder in your workspace.
 
 ### `zulip-dev start`
 This starts the dev enviorment. This command exports `EXTERNAL_HOST` and handles if starts the services beforehand if needed to. This by default binds the host to `0.0.0.0` rather than `127.0.0.1` so it works on cloud9 and sets the port to `8080`.
 
 ### `zulip-dev start-services`
+If you have not run `zulip-dev start` and you need to run provison use this command and then run provision.
 This script starts all the services only if needed. You can run this script if you encounter an error's documented in [wiki](../../wiki/Errors)
 
 Errors you can encounter in cloud9 workspace while working with zulip dev enviorment are documented in [wiki](../../wiki/Errors)
