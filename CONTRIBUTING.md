@@ -58,6 +58,6 @@ git push origin <feature-branch>
 # if you made any changes to git history
 git push origin +<feature branch>
 ```
-And open a PR by visiting https://github,com/<your-username>/zulip-cloud9, 
+And open a PR by visiting https://github,com/your-username/zulip-cloud9, 
 then selecting the branch and clicking 'Pull Request' button.
 
