@@ -33,7 +33,9 @@ function isServiceStarted(service) {
       break;
 
     case 'postgresql':
-      started = !status.includes('down');
+      // travis postgresql has 4 broker's running
+      // we only check for one running in travis ci.
+      started = status.includes('online');
       break;
 
     default:
