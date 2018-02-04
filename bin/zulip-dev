@@ -24,7 +24,7 @@ function startCommand(argv) {
 
 function startServicesCommand() {
   const startServices = require('../lib/start-services');
-  startServices();
+  startServices().then(() => {});
 }
 
 yargs(args)
