@@ -19,7 +19,7 @@ function startCommand(argv) {
   const devServer = require('../lib/dev-server');
 
   argv.passedArgs = passedArgs;
-  devServer(argv);
+  devServer.startServer(argv);
 }
 
 function startServicesCommand() {
@@ -30,7 +30,7 @@ function startServicesCommand() {
 yargs(args)
   .command({
     command: 'start',
-    desc: 'Start zulip-dev server on http://0.0.0.0',
+    desc: 'Start zulip-dev server on https://0.0.0.0',
     builder: (yargs) => {
       yargs
         .option('zulip-path', {
