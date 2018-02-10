@@ -24,7 +24,7 @@
     "zulip dev enviorment"
   ],
   "author": "cPhost",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/cPhost/zulip-cloud9/issues"
   },
