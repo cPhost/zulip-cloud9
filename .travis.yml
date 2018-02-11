@@ -12,8 +12,11 @@ services:
   - redis-server
 
 cache:
- directories:
+  directories:
     - node_modules
 
 script:
-  - npm test
+  - npm run coverage
+  
+after_success:
+  - npm run report-coverage
