@@ -42,5 +42,15 @@ describe('utils test', () => {
       assert.deepStrictEqual(expected, actual);
       mockFS.restore();
     });
+
+    it('should return the default zulip path is exsists', () => {
+      mockFS({
+        '/home/ubuntu/workspace/zulip': {}
+      });
+
+      const expected = '/home/ubunutu/workspace/zulip';
+      const actual = utils.parseZulipPath();
+      mockFS.restore(expected, actual);
+    });
   });
 });
