@@ -7,6 +7,7 @@ const {
 
 describe('start-services start', () => {
   it('should start all the services', function(done) {
+    this.timeout(27000);
     startServices()
       .then(() => {
         const res = checkServicesStarted();
@@ -24,11 +25,16 @@ describe('start-services start', () => {
     services.splice(services.indexOf('memcached'), 1);
 
     beforeEach(function() {
+      if (services[0] === 'rabbitmq-server') {
+        this.timeout(6000);
+      }
+
       runSync('sudo', ['service', services[0], 'stop']);
       services.splice(0, 1);
     });
 
     it('starts rabbitmq-server if its stopped', function(done) {
+      this.timeout(16570);
       startServices()
         .then(() => {
           const res = checkServicesStarted('rabbitmq-server');
@@ -40,6 +46,7 @@ describe('start-services start', () => {
     });
 
     it('starts redis-server if its stopped', function(done) {
+      this.timeout(14000);
       startServices()
         .then(() => {
           const res = checkServicesStarted('redis-server');
@@ -51,6 +58,7 @@ describe('start-services start', () => {
     });
 
     it('starts postgresql if its stopped', function(done) {
+      this.timeout(10000);
       startServices()
         .then(() => {
           const res = checkServicesStarted('postgresql');
@@ -65,6 +73,7 @@ describe('start-services start', () => {
       // this is meant to be only ran on CI.
       // reason being it memcached service restarting breaks
       // memcached on clou9.
+      this.timeout(1500);
       if (!process.env.C9_HOSTNAME) {
         runSync('sudo', ['service', 'memcached', 'stop']);
         startServices()

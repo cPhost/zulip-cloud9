@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint . --cache",
     "lint-fix": "eslint . --cache --fix",
-    "unit-tests": "mocha test/unit/*.test.js --no-timeouts --exit",
+    "unit-tests": "mocha test/unit/*.test.js --exit",
     "test": "npm run lint && npm run unit-tests",
     "coverage": "nyc --reporter=html --reporter=text --reporter=text-summary --cache npm test",
     "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
