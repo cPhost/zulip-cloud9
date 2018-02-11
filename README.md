@@ -1,4 +1,7 @@
 # zulip-cloud9
+[![Build Status](https://travis-ci.org/cPhost/zulip-cloud9.svg?branch=master)](https://travis-ci.org/cPhost/zulip-cloud9)
+[![codecov](https://codecov.io/gh/cPhost/zulip-cloud9/branch/master/graph/badge.svg)](https://codecov.io/gh/cPhost/zulip-cloud9)
+
 zulip-cloud9 provides a wrapper for running zulip dev environment on cloud9.
 
 ## Usage
