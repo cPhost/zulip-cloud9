@@ -24,15 +24,14 @@ describe('start-services start', () => {
     services.splice(services.indexOf('memcached'), 1);
 
     beforeEach(function() {
-      if (!services.length === 3) { services.splice(0, 1); }
       runSync('sudo', ['service', services[0], 'stop']);
-      console.log('stopping service: ', services[0]);
+      services.splice(0, 1);
     });
 
     it('starts rabbitmq-server if its stopped', function(done) {
       startServices()
         .then(() => {
-          const res = checkServicesStarted('memcached');
+          const res = checkServicesStarted('rabbitmq-server');
           done(res);
         })
         .catch((err) => {
@@ -60,6 +59,25 @@ describe('start-services start', () => {
         .catch((err) => {
           done(err);
         });
+    });
+
+    it('starts memcached if its stopped', function(done) {
+      // this is meant to be only ran on CI.
+      // reason being it memcached service restarting breaks
+      // memcached on clou9.
+      if (!process.env.C9_HOSTNAME) {
+        runSync('sudo', ['service', 'memcached', 'stop']);
+        startServices()
+          .then(() => {
+            const res = checkServicesStarted('memcached');
+            done(res);
+          })
+          .catch((err) => {
+            done(err);
+          });
+      } else {
+        done();
+      }
     });
   });
 });

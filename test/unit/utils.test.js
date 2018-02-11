@@ -28,6 +28,7 @@ describe('utils test', () => {
 
     it('should fail if wrong path is passed', () => {
       utils.parseZulipPath('NON_EXSISTENT/PATH');
+      console.log(exitStub.calledCount);
       assert(exitStub.calledTwice);
     });
 
