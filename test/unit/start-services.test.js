@@ -26,6 +26,7 @@ describe('start-services start', () => {
     beforeEach(function() {
       if (!services.length === 3) { services.splice(0, 1); }
       runSync('sudo', ['service', services[0], 'stop']);
+      console.log('stopping service: ', services[0]);
     });
 
     it('starts rabbitmq-server if its stopped', function(done) {

@@ -1,2 +1,6 @@
 .git
 node_modules
+
+# ignore coverage stuff
+.nyc_output
+coverage
