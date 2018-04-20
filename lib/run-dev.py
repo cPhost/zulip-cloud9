@@ -65,6 +65,7 @@ parser.add_argument('--zulip-dir',
                     action="store", dest='zulip_dir')
 options = parser.parse_args()
 
+CURRENT_DIR = path.dirname(__file__)
 ZULIP_DIR = path.abspath(options.zulip_dir)
 print('ZULIP_DIR: {}'.format(ZULIP_DIR))
 
@@ -180,7 +181,9 @@ if options.test:
     # for the Casper tests.
     subprocess.check_call(get_cmd('/tools/webpack'))
 else:
-    webpack_cmd = [get_cmd('tools/webpack'), '--watch', '--port', str(webpack_port)]
+    c9_hostname = os.environ['C9_HOSTNAME']
+    disable_host_flag = str(webpack_port) + ' --disable-host-check'
+    webpack_cmd = [get_cmd('tools/webpack'), '--watch', '--port', disable_host_flag]
     if options.minify:
         webpack_cmd.append('--minify')
     if options.interface:
